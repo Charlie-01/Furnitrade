@@ -1,0 +1,3 @@
+/* Furnitrade Site JavaScript File 
+   Everything here should be in functions that are well
+   commented so this file can be used throughout the site */
