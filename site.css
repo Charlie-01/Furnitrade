@@ -1,2 +1,104 @@
 /* Furnitrade Site CSS File 
 Everything should be well commented*/
+
+body {
+   font-family: 'Be Vietnam';
+   background-color: white;
+   margin-bottom: 0px;
+ }
+
+ h1 {
+
+ }
+
+ /* index.html */
+
+ .mainheader {
+   position: fixed;
+   padding-top: 100px;
+   padding-bottom: 0px;
+   width: 100%;
+   background-color: #e98366;
+   color: white;
+   text-align: left;
+ }
+
+ .header-logo {
+
+}
+
+.header-account {
+   position:absolute;
+   top:0;
+   right:0;
+
+}
+
+.menu {
+   overflow: hidden;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   background-color: #f2af9c;
+   color: white;
+   text-align: left;
+}
+
+.row
+{
+   position: relative;
+}
+
+.column
+{
+    float: left;
+    width: 33.333%
+}
+
+.home-bodyimage-1{
+   padding-top: 5px;
+}
+
+.bodyimage1{
+
+}
+
+.casestudy-1{
+
+}
+
+.home-bodyimage-2{
+   padding-top: 5px;
+   
+}
+
+.bodyimage2{
+
+}
+
+.casestudy-2{
+   
+}
+
+.home-bodyimage-3{
+   padding-top: 5px;
+   
+}
+
+.bodyimage3{
+
+}
+
+.casestudy-3{
+   
+}
+
+.footer{
+   position: fixed;
+   padding-left: 100px;
+   padding-top: 25px;
+   padding-bottom: 25px;
+   width: 100%;
+   background-color: #e98366;
+   color: white;
+   text-align: left;
+}
