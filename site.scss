@@ -1,50 +1,15 @@
-/* Furnitrade Site CSS File 
-Everything should be well commented*/
+/* Furnitrade Site SCSS File 
+Everything should be well commented
 
-* {
-   box-sizing: border-box;
-}
+!!!!
+This needs to be compiled somehow into a css file that
+is then linked in the html, scss cannot be directly linked
+!!!!
 
-html, body {
-   padding: 0;
-   margin: 0;
-}
+*/
 
-header{
-   height: 166px;
-}
-
-body {
-   font-family: 'Be Vietnam';
-   background-color: white;
-   margin-bottom: 0px;
- }
-
- h1 {
-
- }
 
  /* index.html */
-
- .mainheader {
-   position: fixed;
-   padding-top: 100px;
-   padding-bottom: 0px;
-   width: 100%;
-   background-color: white;
-   color: white;
-   text-align: left;
- }
-
- .header-logo {
-
-}
-
-.header-account {
-   position:absolute;
-   top:0;
-   right:0;
-}
 
 .account{
    margin-top: 20px;
@@ -76,38 +41,3 @@ body {
    opacity: 0.4;
    bottom: -30px;
  }
-
-.menu {
-   overflow: hidden;
-   padding-top: 10px;
-   padding-bottom: 10px;
-   background-color: #e98366;
-   color: white;
-   text-align: left;
-}
-
-.slider {
-   width: 1250px;
-   height: 500px;
-   display: flex;
-   overflow-x: auto;
-   scroll-snap-type: x mandatory;  
-   padding-left: 7px;
- }
- .slide {
-   width: 1250px;
-   flex-shrink: 0;
-   height: 100%;
-   scroll-snap-align: start
- }
-
-.footer{
-   position: fixed;
-   padding-left: 100px;
-   padding-top: 25px;
-   padding-bottom: 25px;
-   width: 100%;
-   background-color: #e98366;
-   color: white;
-   text-align: left;
-}
