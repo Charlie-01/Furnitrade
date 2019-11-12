@@ -5,6 +5,8 @@
    function loggedin(){
       //the button of the class account will change what it says if the user has
       //created an account????
+
+      window.location="create_account.html";
    }
 
    var $button = document.querySelector('.account');

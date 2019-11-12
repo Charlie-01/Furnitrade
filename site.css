@@ -38,7 +38,7 @@ body {
 
  .mainheader {
    position: fixed;
-   padding-top: 100px;
+   padding-top: 20px;
    padding-bottom: 0px;
    width: 100%;
    background-color: white;
@@ -54,6 +54,26 @@ body {
    position:absolute;
    top:0;
    right:0;
+}
+
+.login{
+   border-radius: 6px;
+   background-color: white;
+   color: #e98366;
+   border: 2px solid #e98366;
+   margin-top: 20px;
+   margin-right: 20px;
+   font-size: 16px;
+   font-weight: bold;
+}
+
+.login:hover{
+   background-color: #e98366;
+   color: white;
+}
+
+.login:active{
+   border-color: white;
 }
 
 
