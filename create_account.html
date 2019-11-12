@@ -1,9 +1,79 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>Furnitrde</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="resources/site.css"/>
-    <link href='https://fonts.googleapis.com/css?family=Be Vietnam' rel='stylesheet'/>
-    <link href='https://fonts.googleapis.com/css?family=Playball' rel='stylesheet'/>
-  </head>
+
+<head>
+  <title>Furnitrde</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="site.scss" />
+  <link href='https://fonts.googleapis.com/css?family=Be Vietnam' rel='stylesheet' />
+  <link href='https://fonts.googleapis.com/css?family=Playball' rel='stylesheet' />
+  <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400"/>
+  <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+
+<body>
+  <!-- ...
+      
+      main header 
+    
+    ... -->
+
+
+
+  <header class = "header">
+    <div class="mainheader">
+
+      <div class="header-logo">
+        <a href="index.html">
+          <img src="Screen Shot 2019-10-26 at 5.09.24 PM.png" width="100" height="85" class="ladybug-logo"/>
+          <img src="Screen Shot 2019-10-26 at 4.45.59 PM.png" width="300" height="100" class="furnitrade-logo"/>
+        </a>
+      </div>
+
+      <div class="header-account">
+        <button class="login" onclick="loggedin()">
+          Log In
+        </button>
+      </div>
+
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="buy.html">Buy</a>
+        <a href="sell.html">Sell</a>
+        <a href="trade.html">Trade</a>
+      </div>
+
+    </div>
+  </header>
+
+  <form id="addForm" name="addForm" action="#" method="post" onsubmit="return validate(this);">
+    <fieldset> 
+      <legend>Contact Information</legend>
+      <div class="formData">
+                      
+        <label class="field" for = "firstName">First Name:</label>
+        <div class="value"><input type="text" size="60" value="" name="firstName" id="firstName"/></div>
+        
+        <label class="field" for = "lastName">Last Name:</label>
+        <div class="value"><input type="text" size="60" value="" name="lastName" id="lastName"/></div>
+        
+        <label class="field" for = "title">Title:</label>
+        <div class="value"><input type="text" size="60" value="" name="title" id="title"/></div>
+        
+        <label class="field" for = "org">Organization:</label>
+        <div class="value"><input type="text" size="60" value="" name="org" id="org"/></div>
+        
+        <label class="field" for = "pseudonym">Nickname:</label>
+        <div class="value"><input type="text" size="60" value="" name="pseudonym" id="pseudonym"/></div>
+        
+        <label class="field" for = "comment">Comments:</label>
+        <div class="value"><textarea rows="4" cols="40" name="comments" id="comments" onclick="cleartext()">Please enter your comments</textarea></div>
+
+        <input type="submit" value="save" id="save" name="save" onclick="alert(formsubmitted);"/>
+      </div>
+    </fieldset>
+  </form>
+
+  </body>
+</html>
