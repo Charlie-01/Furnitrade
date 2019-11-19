@@ -9,6 +9,7 @@
   <link href='https://fonts.googleapis.com/css?family=Be Vietnam' rel='stylesheet' />
   <link href='https://fonts.googleapis.com/css?family=Playball' rel='stylesheet' />
   <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400"/>
+  <script type="text/javascript" src="site.js"></script>
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
 </head>
 
@@ -16,6 +17,10 @@
   <!-- ...
       
       main header 
+
+      i say use php isset to see if the form object has
+      been filled out, use the examples also to see if
+      errors are thrown.
     
     ... -->
 
@@ -47,28 +52,52 @@
     </div>
   </header>
 
-  <form id="addForm" name="addForm" action="#" method="post" onsubmit="return validate(this);">
+  <!-- 
+
+    use php to post the values of the form into some
+    data storage.
+
+    can someone else do this i stopped listening.
+
+    or go ask plotka plz
+
+   -->
+
+
+
+  <form class = "account_form" name = "account_form" action = "#" method = "post" onsubmit = "return validate(this);">
     <fieldset> 
-      <legend>Contact Information</legend>
-      <div class="formData">
+      <legend>Create Account</legend>
+      <div class="formData"> 
+        <!-- 
+          
+          this div is the box around the form 
+        
+        -->
                       
-        <label class="field" for = "firstName">First Name:</label>
-        <div class="value"><input type="text" size="60" value="" name="firstName" id="firstName"/></div>
+        <label class="field" for = "email">Email:</label>
+        <div class="value"><input type="text" size="60" value="" name="email" id="email"/></div>
         
-        <label class="field" for = "lastName">Last Name:</label>
-        <div class="value"><input type="text" size="60" value="" name="lastName" id="lastName"/></div>
+        <label class="field" for = "password">Password: <button class="passinfo" onclick="passinfo()"> i </button></label>
+        <div class="value"><input type="text" size="60" value="" name="password" id="password"/></div>
         
-        <label class="field" for = "title">Title:</label>
-        <div class="value"><input type="text" size="60" value="" name="title" id="title"/></div>
+        <label class="field" for = "username">Username:</label>
+        <div class="value"><input type="text" size="60" value="" name="username" id="username"/></div>
         
-        <label class="field" for = "org">Organization:</label>
-        <div class="value"><input type="text" size="60" value="" name="org" id="org"/></div>
+        <label class="field" for = "college">College:</label>
+        <div class="value"><input type="text" size="60" value="" name="college" id="college"/></div>
         
-        <label class="field" for = "pseudonym">Nickname:</label>
-        <div class="value"><input type="text" size="60" value="" name="pseudonym" id="pseudonym"/></div>
+        <label class="field" for = "location">Location:</label>
+        <div class="value"><input type="text" size="60" value="" name="housing" id="housing"/></div>
         
-        <label class="field" for = "comment">Comments:</label>
-        <div class="value"><textarea rows="4" cols="40" name="comments" id="comments" onclick="cleartext()">Please enter your comments</textarea></div>
+        <label class="field" for = "housing">Housing Style:</label>
+        <div class="value">
+          <select name="housing" id="housing">
+              <option value="dorm">Dorm</option>
+              <option value="apartment">Apartment</option>
+              <option value="house">House</option>
+            </select>
+        </div>
 
         <input type="submit" value="save" id="save" name="save" onclick="alert(formsubmitted);"/>
       </div>
