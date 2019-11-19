@@ -34,7 +34,7 @@ body {
 
  }
 
- /* index.html */
+/* index.html */ 
 
  .mainheader {
    position: fixed;
@@ -122,3 +122,49 @@ body {
    color: white;
    text-align: center;
 }
+
+
+/* sell.php */ 
+
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+  display: none;
+}
+
+.box__input {
+   background-color: white;
+   border: 3px dashed #e98366;
+   height: 300px;
+   width: 200px;
+   border-radius: 15px;
+   margin-left: 100px;
+   margin-top: 75px;
+   margin-bottom: 75px;
+   margin-right: 50px;
+   display: inline-block;
+   padding: 5px 5px 5px 5px;
+ }
+
+ .productData {
+   background-color: white;
+   border: 1px solid #e98366;
+   height: 300px;
+   width: 500px;
+   border-radius: 5px;
+   margin-left: 100px;
+   margin-top: 75px;
+   margin-bottom: 75px;
+   margin-right: 50px;
+   display: inline-block;
+   padding: 5px 5px 5px 5px;
+ }
+
+.box__dragndrop{
+   padding-bottom: 100px;
+}
+
+.box__input:hover {
+   background-color: rgb(253, 235, 207);
+ }
