@@ -16,11 +16,54 @@
       window.location="create_account.html";
    }
 
-   var $button = document.querySelector('.account');
-   $button.addEventListener('click', function() {
-      var duration = 0.3,
-         delay = 0.08;
-      TweenMax.to($button, duration, {scaleY: 1.6, ease: Expo.easeOut});
-      TweenMax.to($button, duration, {scaleX: 1.2, scaleY: 1, ease: Back.easeOut, easeParams: [3], delay: delay});
-      TweenMax.to($button, duration * 1.25, {scaleX: 1, scaleY: 1, ease: Back.easeOut, easeParams: [6], delay: delay * 3 });
-   });
+
+
+
+
+
+   /*
+      ***
+
+       sell page
+
+      ***
+   */
+   
+   //this gathers each name and value int he field and formats it into JSON style
+   $(document).ready(function() {
+      $("#save").click(function(e){
+         var jsonData = {};
+    
+       var formData = $("#sell_form").serializeArray();
+    
+       $.each(formData, function() {
+            if (jsonData[this.name]) {
+               if (!jsonData[this.name].push) {
+                   jsonData[this.name] = [jsonData[this.name]];
+               }
+               jsonData[this.name].push(this.value || '');
+           } else {
+               jsonData[this.name] = this.value || '';
+           }
+    
+    
+       });
+
+       //this part is supposed to post the newly formatted data to the json file, but it doesnt i dunnooo whyyy
+       console.log(jsonData);
+        $.ajax(
+        {
+            type: "POST",
+            url : "sell_products.json",
+            data : jsonData,
+    
+        });
+        e.preventDefault(); 
+
+        window.location="sell.php";
+    });
+    });
+
+
+
+
