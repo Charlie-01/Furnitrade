@@ -9,6 +9,13 @@
       window.location="create_account.html";
    }
 
+   function passinfo(){
+      //alerts user of password shit
+
+      alert("At least 8 characters\nMust contain at least one number\nMust contain at least one capital letter");
+      window.location="create_account.html";
+   }
+
    var $button = document.querySelector('.account');
    $button.addEventListener('click', function() {
       var duration = 0.3,
