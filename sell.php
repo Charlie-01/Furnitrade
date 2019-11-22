@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Furnitrde</title>
+    <title>Furnitrade</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="site.css"/>
     <link href='https://fonts.googleapis.com/css?family=Be Vietnam' rel='stylesheet'/>
@@ -158,20 +158,92 @@ the forms
 
  <form id = "sell_form" class="box" method="post" action="sell.php" enctype="multipart/form-data">
   <div class="box__input">
-    <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"></span>.</label>
+    <label for="file" class= "file_label"> + Add Image </label>
     <input class="box__file" type="file" name="files[]" id="file" value = "" data-multiple-caption="{count} files selected" multiple />
   </div>
 
   <div class="productData">
+
+       <label class="field" for = "email">Seller Email:</label>
+        <div class="value">
+          <input type="text" size="50" value="" name="email" id="email"/>
+        </div>
                      
-       <label class="field" for="firstNames">First Name(s):</label>
-       <div class="value"><input type="text" size="60" value="<?php echo $firstNames; ?>" name="firstNames" id="firstNames"/></div>
-       
-       <label class="field" for="lastName">Last Name:</label>
-       <div class="value"><input type="text" size="60" value="<?php echo $lastName; ?>" name="lastName" id="lastName"/></div>
-       
-       <label class="field" for="dob">Date of Birth:</label>
-       <div class="value"><input type="text" size="10" maxlength="10" value=" <?php echo $dob; ?>" name="dob" id="dob"/> <em>yyyy-mm-dd</em></div>
+       <label class="field" for = "category">Category:</label>
+        <div class="value">
+          <select name="category" id="category">
+              <option value="--">--</option>
+              <option value="seating">Seating</option>
+              <option value="desks">Desks</option>
+              <option value="lighting">Lighting</option>
+              <option value="tables">Tables</option>
+              <option value="kitchenware">Kitchenware</option>
+              <option value="misc">Miscellaneous</option>
+            </select>
+        </div>
+
+       <label class="field" for = "location">Location:</label>
+        <div class="value">
+          <select name="location" id="location">
+              <!-- this is by states, i just have to go back and change these but im lazy -->
+              <option value="--">--</option>
+              <option value="AL">AL</option>
+              <option value="AK">AK</option>
+              <option value="AZ">AZ</option>
+              <option value="AR">AR</option>
+              <option value="CA">CA</option>
+              <option value="CO">CO</option>
+              <option value="CT">CT</option>
+              <option value="DE">DE</option>
+              <option value="FL">FL</option>
+              <option value="GA">GA</option>
+              <option value="HI">HI</option>
+              <option value="ID">ID</option>
+              <option value="IL">IL</option>
+              <option value="IN">IN</option>
+              <option value="IA">IA</option>
+              <option value="KS">KS</option>
+              <option value="KY">KY</option>
+              <option value="LA">LA</option>
+              <option value="ME">ME</option>
+              <option value="MD">MD</option>
+              <option value="MA">MA</option>
+              <option value="MI">MI</option>
+              <option value="MN">MN</option>
+              <option value="MS">MS</option>
+              <option value="MO">MO</option>
+              <option value="MT">MT</option>
+              <option value="NE">NE</option>
+              <option value="NV">NV</option>
+              <option value="NH">NH</option>
+              <option value="NJ">NJ</option>
+              <option value="NM">NM</option>
+              <option value="NY">NY</option>
+              <option value="NC">NC</option>
+              <option value="ND">ND</option>
+              <option value="OH">OH</option>
+              <option value="OK">OK</option>
+              <option value="OR">OR</option>
+              <option value="PA">PA</option>
+              <option value="RI">RI</option>
+              <option value="SC">SC</option>
+              <option value="SD">SD</option>
+              <option value="TN">TN</option>
+              <option value="TX">TX</option>
+              <option value="UT">UT</option>
+              <option value="VT">VT</option>
+              <option value="VA">VA</option>
+              <option value="WA">WA</option>
+              <option value="WV">WV</option>
+              <option value="WI">WI</option>
+              <option value="WY">WY</option>
+            </select>
+        </div>
+
+       <label class="field" for = "price">Price:</label>
+        <div class="value">
+          <input type="text" size="20" value="" name="price" id="price"/>
+        </div>
        
        <input type="submit" value="save" id="save" name="save"/>
   </div>

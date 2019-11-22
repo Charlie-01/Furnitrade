@@ -3,9 +3,11 @@
   <head>
     <title>Furnitrde</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="resources/site.css"/>
+    <link rel="stylesheet" href="site.css"/>
     <link href='https://fonts.googleapis.com/css?family=Be Vietnam' rel='stylesheet'/>
     <link href='https://fonts.googleapis.com/css?family=Playball' rel='stylesheet'/>
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="site.js"></script>
   </head>
 
   <!--
@@ -19,4 +21,147 @@
     make a function (jquery or js?) that will remove JSON entrys
     temporarily based on either location or category?? aahahhahaha
 
+
+    use get to fill in the divs from the json file
+
+    make sure the html is structured well enough for this to be implemented
+
+-> write the whole html first like as if not from a JSON, so u can replace it
+-> i would say 3 divs by 10 divs down (30)
+-> put them in an ordered list where each <li> item has 3 divs
+-> each of those divs should contain image, then underneath category, location
+    price
+
   -->
+
+
+<body>
+      <!-- ...
+          
+          main header 
+        
+        ... -->
+    
+    
+    
+  <header class = "header">
+      <div class="mainheader">
+  
+        <div class="header-logo">
+          <a href="index.html">
+            <img src="Screen Shot 2019-10-26 at 5.09.24 PM.png" width="100" height="85" class="ladybug-logo"/>
+            <img src="Screen Shot 2019-10-26 at 4.45.59 PM.png" width="300" height="100" class="furnitrade-logo"/>
+          </a>
+        </div>
+  
+        <div class="header-account">
+            <button class="login" onclick="loggedin()">
+              Log In
+            </button>
+        </div>
+  
+        <div class="menu">
+          <a href="index.html">Home</a>
+          <a href="buy.html">Buy</a>
+          <a href="sell.php">Sell</a>
+          <a href="trade.html">Trade</a>
+        </div>
+
+        <div class="filter-bar">
+
+          <!-- make this have dropdowns that are all buttons with functions
+             to be called on click that change the JSON file -->
+
+            <a href="buy.html"><button class = "invisible-button">Location</button></a>
+            <a href="buy.html"><button class = "invisible-button">Category</button></a>
+            <a href="buy.html"><button class = "invisible-button">Price</button></a>
+        </div>
+  
+      </div>
+    </header>
+
+  <!-- ...
+      
+      product divs
+    
+    ... -->
+
+        <!-- 
+
+        -> i would say 3 divs by 10 divs down (30)
+        -> put them in an ordered list where each <li> item has 3 divs
+        -> each of those divs should contain image, then underneath category, location
+            price
+          
+        -->
+
+    <div class = "big-products-block" id = "all-products">
+      <ol>
+        <!-- 10 of these would be made with a loop thru the JSON get but im making
+          one for the sake of demoing how the ajax needs to be written (see Lab 9)-->
+
+        <li class = "product-row"> <!-- row 1... would be x10 -->
+          <div class = "product-div">
+            <img src = ""/>
+            <p>Category</p>
+            <p>Location</p>
+            <p>Price</p>
+            <button onclick = bought() >Buy</button>
+          </div>
+
+          <div class = "product-div">
+              <img src = ""/>
+              <p>Category</p>
+              <p>Location</p>
+              <p>Price</p>
+              <button onclick = bought() >Buy</button>
+          </div>
+
+          <div class = "product-div">
+              <img src = ""/>
+              <p>Category</p>
+              <p>Location</p>
+              <p>Price</p>
+              <button onclick = bought() >Buy</button>
+          </div>
+        </li>
+
+
+      </ol>
+  </div>
+
+
+
+
+
+      
+    </ol>
+  
+
+
+
+
+
+
+  <!-- ...
+      
+      footer
+    
+    ... -->
+    <footer>
+        <div class="footer">
+          <p>
+            <a href="https://www.instagram.com/buy.sell.furnitrade/">
+              <img src="insta-logo.png" width="30" height="30" class="instagram"/>
+            </a>
+          </p>
+          <p>
+            @buy.sell.furnitrade
+          </p>
+          <p>
+            Follow us on Instagram!
+          </p>
+        </div>
+      </footer>
+    
+    </body>

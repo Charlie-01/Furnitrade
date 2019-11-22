@@ -55,7 +55,7 @@
         {
             type: "POST",
             url : "sell_products.json",
-            data : jsonData,
+            data : jsonData
     
         });
         e.preventDefault(); 
@@ -64,6 +64,47 @@
     });
     });
 
+
+
+
+   /*
+      ***
+
+       buy page
+
+      ***
+   */
+
+   
+  $(document).ready(function() {
+	
+   $.ajax({
+        type: "GET",
+        url: "sell_products.json",
+        dataType: "json",
+        success: function(responseData, status){
+         var output = "<ol>";  
+         $.each(responseData.menuItem, function(i, menuItem) { //how do i go through this backwards?? So most recent post comes first?
+            //insert the structure of the divs on buy page, as below HELP
+
+            //output += '<li><a href="' + menuItem.menuURL + '">';
+            //output += menuItem.menuName;
+            //output += '</a></li>';
+       });
+       $('#all-products').html(output);
+     }, error: function(msg) {
+                // there was a problem
+       alert("There was a problem: " + msg.status + " " + msg.statusText);
+     }
+   });
+});
+
+
+function bought(){
+
+   alert("You have chosen to claim this product. \n To complete the transaction please contact the seller. \n\n Contact provided below: \n");
+
+}
 
 
 

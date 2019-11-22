@@ -106,6 +106,7 @@ body {
    scroll-snap-type: x mandatory;  
    padding-left: 7px;
  }
+
  .slide {
    width: 1250px;
    flex-shrink: 0;
@@ -114,9 +115,10 @@ body {
  }
 
 .footer{
-   position: static;
+   position: fixed;
    padding-top: 15px;
-   padding-bottom: 15px;
+   bottom: 0;
+   padding-bottom: 20px;
    width: 100%;
    background-color: #e98366;
    color: white;
@@ -133,25 +135,16 @@ body {
   display: none;
 }
 
-.box__input {
-   background-color: white;
-   border: 3px dashed #e98366;
-   height: 300px;
-   width: 200px;
-   border-radius: 15px;
-   margin-left: 100px;
-   margin-top: 75px;
-   margin-bottom: 75px;
-   margin-right: 50px;
+.box_input{
    display: inline-block;
-   padding: 5px 5px 5px 5px;
- }
+}
 
- .productData {
+.productData { /* WHY IS THIS NOT IN LINE WITH BOX_INPUT??? */
    background-color: white;
    border: 1px solid #e98366;
    height: 300px;
    width: 500px;
+   float: left;
    border-radius: 5px;
    margin-left: 100px;
    margin-top: 75px;
@@ -161,10 +154,106 @@ body {
    padding: 5px 5px 5px 5px;
  }
 
+#file{
+   color: red;
+   width: 200px;
+   height: 300px;
+   display: none;
+}
+
+.file_label {
+   background-color: white;
+   color: #3e3e3f;
+   text-align: center;
+   border: 3px dashed #e98366;
+   height: 300px;
+   width: 270px;
+   border-radius: 15px;
+   margin-left: 100px;
+   margin-top: 75px;
+   margin-bottom: 75px;
+   margin-right: 50px;
+   display: inline-block;
+   float: left;
+   padding: 5px 5px 5px 5px;
+   padding-top: 130px;
+   cursor: pointer;
+}
+
 .box__dragndrop{
    padding-bottom: 100px;
 }
 
-.box__input:hover {
+.file_label:hover {
    background-color: rgb(253, 235, 207);
  }
+
+/* buy.html */ 
+
+.filter-bar {
+   overflow: hidden;
+   background-color: lightgray;
+   color: #3e3e3f;
+   text-align: left;
+   padding-left: 30px;
+}
+
+.filter-bar a {
+   float: left;
+   color: white;
+   text-align: center;
+   text-decoration: none;
+ }
+
+.filter-bar .invisible-button:hover {
+   background-color: #3e3e3f;
+   color: lightgray;
+ }
+
+.invisible-button{
+   display: inline-block;
+   border: none;
+   padding: 10px 30px 10px 30px;
+   margin: 0px 0px 0px 0px;
+   text-decoration: none;
+   background: lightgray;
+   color: #ffffff;
+   font-family: sans-serif;
+   font-size: 15px;
+   cursor: pointer;
+   text-align: center;
+}
+
+.invisible-button:hover {
+   background-color: #3e3e3f;
+}
+
+.big-products-block{
+   width: 1250px;
+   height: 1150px;
+   padding-left: 7px;
+   padding-top: 50px;
+   margin-top: 10px;
+   margin-bottom: 1px;
+}
+
+.product-row{
+   width: 1250px;
+   display: flex;
+   padding-left: 120px;
+   padding-right: 0px;
+}
+
+.product-div{
+   border: 1px solid lightgray; /* why isnt this showing up?? */
+   border-radius: 5px;
+   width: 250px;
+   margin-right: 200px;
+   float: left;
+   display: inline-block;
+   padding: 10px 10px 10px 10px;
+}
+
+.product-div p{
+   padding-bottom: 15px;
+}
