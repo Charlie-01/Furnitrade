@@ -10,6 +10,8 @@
     <script type="text/javascript" src="site.js"></script>
   </head>
 
+
+
   <!-- ...
       
       main header 
@@ -45,13 +47,8 @@
   </header>
 
   
-  <!-- 
-    this is gonna be a js form
-    values from js form go into JSON file with php?
-      eg image, location, title, price, category, description
 
-    JSON file will be called on Buy page to occupy each
-   -->
+
 
 
 <!-- 
@@ -63,83 +60,110 @@ the php
 -->
 
 
+<?php
+  // We'll need a database connection both for retrieving records and for 
+  // inserting them.  Let's get it up front and use it for both processes
+  // to avoid opening the connection twice.  If we make a good connection, 
+  // we'll change the $dbOk flag.
+  $dbOk = false;
+  
+  /* Create a new database connection object, passing in the host, username,
+     password, and database to use. The "@" suppresses errors. */
+  @ $db = new mysqli('localhost', 'root', 'charlotte', 'FurnitradeSB');
+  
+  if ($db->connect_error) {
+    echo '<div class="messages">Could not connect to the database. Error: ';
+    echo $db->connect_errno . ' - ' . $db->connect_error . '</div>';
+  } else {
+    $dbOk = true; 
+  }
 
-
-
-   <?php 
-   /* some very basic form processing */
-   
-   // variables to hold our form values:
-   $firstNames = '';  //change these namesss
-   $lastName = '';
-   $dob = '';
-   // hold any error messages
-   $errors = ''; 
-   
-   // have we posted?
-   $havePost = isset($_POST["save"]);
-   
-   if ($havePost) {
-     // Get the input and clean it.
-     // First, let's get the input one param at a time.
-     // Could also output escape with htmlentities()
-     $firstNames = htmlspecialchars(trim($_POST["firstNames"]));  
-     $lastName = htmlspecialchars(trim($_POST["lastName"]));
-     $dob = htmlspecialchars(trim($_POST["dob"]));
-     
-     // special handling for the date of birth
-     $dobTime = strtotime($dob); // parse the date of birth into a Unix timestamp (seconds since Jan 1, 1970)
-     $dateFormat = 'Y-m-d'; // the date format we expect, yyyy-mm-dd
-     // Now convert the $dobTime into a date using the specfied format.
-     // Does the outcome match the input the user supplied?  
-     // The right side will evaluate true or false, and this will be assigned to $dobOk
-     $dobOk = (date($dateFormat, $dobTime) == $dob);  
-     
-     // Let's do some basic validation
-     $focusId = ''; // trap the first field that needs updating, better would be to save errors in an array
-     
-     if ($firstNames == '') {
-       $errors .= '<li>First name may not be blank</li>';
-       if ($focusId == '') $focusId = '#firstNames';
-     }
-     if ($lastName == '') {
-       $errors .= '<li>Last name may not be blank</li>';
-       if ($focusId == '') $focusId = '#lastName';
-     }
-     if ($dob == '') {
-       $errors .= '<li>Date of birth may not be blank</li>';
-       if ($focusId == '') $focusId = '#dob';
-     }
-     if (!$dobOk) {
-       $errors .= '<li>Enter a valid date in yyyy-mm-dd format</li>';
-       if ($focusId == '') $focusId = '#dob';
-     }
-   
-     if ($errors != '') { ?>
-       <div id="messages">
-         <h4>Please correct the following errors:</h4>
-         <ul>
-           <?php echo $errors; ?>
-         </ul>
-         <script type="text/javascript">
-           $(document).ready(function() {
-             $("<?php echo $focusId ?>").focus();
-           });
-         </script>
-       </div>
-     <?php } else { ?>
-       <div id="messages">
-         <h4>Product Posted</h4>
-       </div>
-     <?php } 
-   }
- ?>
+  // Now let's process our form:
+  // Have we posted?
+  $havePost = isset($_POST["save"]);
+  
+  // Let's do some basic validation
+  $errors = '';
+  if ($havePost) {
+    
+    // Get the output and clean it for output on-screen.
+    // First, let's get the output one param at a time.
+    // Could also output escape with htmlentities()
+    $image = htmlspecialchars(trim($_POST["file"]));
+    $category = htmlspecialchars(trim($_POST["category"]));  
+    $location = htmlspecialchars(trim($_POST["location"]));
+    $price = htmlspecialchars(trim($_POST["price"]));
+    
+    
+    $focusId = ''; // trap the first field that needs updating, better would be to save errors in an array
+    
+    if ($file == '') {
+      $errors .= '<li>Image may not be blank</li>';
+      if ($focusId == '') $focusId = '#file';
+    }
+    if ($category == '') {
+      $errors .= '<li>Category may not be blank</li>';
+      if ($focusId == '') $focusId = '#category';
+    }
+    if ($location == '') {
+      $errors .= '<li>Location may not be blank</li>';
+      if ($focusId == '') $focusId = '#location';
+    }
+    if ($price == '') {
+      $errors .= '<li>Price may not be blank</li>';
+      if ($focusId == '') $focusId = '#price';
+    }
+  
+    if ($errors != '') {
+      echo '<div class="messages"><h4>Please correct the following errors:</h4><ul>';
+      echo $errors;
+      echo '</ul></div>';
+      echo '<script type="text/javascript">';
+      echo '  $(document).ready(function() {';
+      echo '    $("' . $focusId . '").focus();';
+      echo '  });';
+      echo '</script>';
+    } else { 
+      if ($dbOk) {
+        // Let's trim the input for inserting into mysql
+        // Note that aside from trimming, we'll do no further escaping because we
+        // use prepared statements to put these values in the database.
+        $imageForDb = trim($_POST["file"]);  
+        $categoryForDb = trim($_POST["category"]);  
+        $locationForDb = trim($_POST["location"]);
+        $priceForDb = trim($_POST["price"]);
+        
+        // Setup a prepared statement. Alternately, we could write an insert statement - but 
+        // *only* if we escape our data using addslashes() or (better) mysqli_real_escape_string().
+        $insQuery = "insert into `products` (`file`,`category`,`location`,`price`) values(?,?,?)";
+        $statement = $db->prepare($insQuery);
+        // bind our variables to the question marks
+        $statement->bind_param("sss",$imageForDB,$categoryForDb,$locationForDb,$priceForDb);
+        // make it so:
+        $statement->execute();
+        
+        // give the user some feedback
+        echo '<div class="messages"><h4>Success: ' . $statement->affected_rows . ' product added!</h4>';
+        
+        // close the prepared statement obj 
+        $statement->close();
+      }
+    } 
+  }
+?>
  
  <?php 
    // to include client-side validation to the form below, 
    // add the following parameter:
    // onsubmit="return validate(this);"
  ?>
+
+
+
+
+
+
+
 
 
 
@@ -153,21 +177,20 @@ the forms
 
 
 
-
- <!-- this is the whole form -->
+ <!-- this is the whole form, including the image select -->
 
  <form id = "sell_form" class="box" method="post" action="sell.php" enctype="multipart/form-data">
   <div class="box__input">
     <label for="file" class= "file_label"> + Add Image </label>
-    <input class="box__file" type="file" name="files[]" id="file" value = "" data-multiple-caption="{count} files selected" multiple />
+    <input class="box__file" type="file" name="file[]" id="file" value="" data-multiple-caption="{count} files selected" multiple />
   </div>
 
   <div class="productData">
 
-       <label class="field" for = "email">Seller Email:</label>
+       <!-- <label class="field" for = "email">Seller Email:</label>
         <div class="value">
           <input type="text" size="50" value="" name="email" id="email"/>
-        </div>
+        </div> -->
                      
        <label class="field" for = "category">Category:</label>
         <div class="value">
