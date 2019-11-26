@@ -16,6 +16,35 @@
       window.location="create_account.html";
    }
 
+   function validate(formObj) {
+  
+      if (formObj.file.value === '') {
+        alert('Please choose an image');
+        formObj.file.focus();
+        return false;
+      }
+      
+      if (formObj.category.value === '') {
+        alert('Please enter a category');
+        formObj.category.focus();
+        return false;
+      }
+      
+      if (formObj.location.value === '') {
+        alert('Please select a location');
+        formObj.location.focus();
+        return false;
+      }
+
+      if (formObj.price.value === '') {
+         alert('Please enter a price');
+         formObj.price.focus();
+         return false;
+       }
+        
+      return true;
+    }
+
 
 
 
@@ -28,41 +57,7 @@
 
       ***
    */
-   
-   //this gathers each name and value int he field and formats it into JSON style
-   $(document).ready(function() {
-      $("#save").click(function(e){
-         var jsonData = {};
-    
-       var formData = $("#sell_form").serializeArray();
-    
-       $.each(formData, function() {
-            if (jsonData[this.name]) {
-               if (!jsonData[this.name].push) {
-                   jsonData[this.name] = [jsonData[this.name]];
-               }
-               jsonData[this.name].push(this.value || '');
-           } else {
-               jsonData[this.name] = this.value || '';
-           }
-    
-    
-       });
-
-       //this part is supposed to post the newly formatted data to the json file, but it doesnt i dunnooo whyyy
-       console.log(jsonData);
-        $.ajax(
-        {
-            type: "POST",
-            url : "sell_products.json",
-            data : jsonData
-    
-        });
-        e.preventDefault(); 
-
-        window.location="sell.php";
-    });
-    });
+ 
 
 
 
@@ -74,30 +69,7 @@
 
       ***
    */
-
-   
-  $(document).ready(function() {
 	
-   $.ajax({
-        type: "GET",
-        url: "sell_products.json",
-        dataType: "json",
-        success: function(responseData, status){
-         var output = "<ol>";  
-         $.each(responseData.menuItem, function(i, menuItem) { //how do i go through this backwards?? So most recent post comes first?
-            //insert the structure of the divs on buy page, as below HELP
-
-            //output += '<li><a href="' + menuItem.menuURL + '">';
-            //output += menuItem.menuName;
-            //output += '</a></li>';
-       });
-       $('#all-products').html(output);
-     }, error: function(msg) {
-                // there was a problem
-       alert("There was a problem: " + msg.status + " " + msg.statusText);
-     }
-   });
-});
 
 
 function bought(){
