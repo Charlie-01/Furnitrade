@@ -38,7 +38,7 @@
 
       <div class="menu">
         <a href="index.html">Home</a>
-        <a href="buy.html">Buy</a>
+        <a href="buy.php">Buy</a>
         <a href="sell.php">Sell</a>
         <a href="trade.html">Trade</a>
       </div>
@@ -69,7 +69,7 @@ the php
   
   /* Create a new database connection object, passing in the host, username,
      password, and database to use. The "@" suppresses errors. */
-  @ $db = new mysqli('localhost', 'root', 'charlotte', 'FurnitradeSB');
+   $db = new mysqli('localhost', 'root', 'charlotte', 'FurnitradeSB');
   
   if ($db->connect_error) {
     echo '<div class="messages">Could not connect to the database. Error: ';
@@ -78,9 +78,11 @@ the php
     $dbOk = true; 
   }
 
+
   // Now let's process our form:
   // Have we posted?
   $havePost = isset($_POST["save"]);
+  var_dump($havePost);
   
   // Let's do some basic validation
   $errors = '';
@@ -89,7 +91,7 @@ the php
     // Get the output and clean it for output on-screen.
     // First, let's get the output one param at a time.
     // Could also output escape with htmlentities()
-    $image = htmlspecialchars(trim($_POST["file"]));
+    $image = htmlspecialchars(trim($_POST["file[]"]));
     $category = htmlspecialchars(trim($_POST["category"]));  
     $location = htmlspecialchars(trim($_POST["location"]));
     $price = htmlspecialchars(trim($_POST["price"]));
@@ -100,20 +102,25 @@ the php
     if ($file == '') {
       $errors .= '<li>Image may not be blank</li>';
       if ($focusId == '') $focusId = '#file';
+      echo $errors;
     }
     if ($category == '') {
       $errors .= '<li>Category may not be blank</li>';
       if ($focusId == '') $focusId = '#category';
+      echo $errors;
     }
     if ($location == '') {
       $errors .= '<li>Location may not be blank</li>';
       if ($focusId == '') $focusId = '#location';
+      echo $errors;
     }
     if ($price == '') {
       $errors .= '<li>Price may not be blank</li>';
       if ($focusId == '') $focusId = '#price';
+      echo $errors;
     }
-  
+
+
     if ($errors != '') {
       echo '<div class="messages"><h4>Please correct the following errors:</h4><ul>';
       echo $errors;
@@ -128,19 +135,19 @@ the php
         // Let's trim the input for inserting into mysql
         // Note that aside from trimming, we'll do no further escaping because we
         // use prepared statements to put these values in the database.
-        $imageForDb = trim($_POST["file"]);  
+        $imageForDb = trim($_POST["file[]"]);  
         $categoryForDb = trim($_POST["category"]);  
         $locationForDb = trim($_POST["location"]);
         $priceForDb = trim($_POST["price"]);
         
-        // Setup a prepared statement. Alternately, we could write an insert statement - but 
-        // *only* if we escape our data using addslashes() or (better) mysqli_real_escape_string().
+        // Setup a prepared statement
         $insQuery = "insert into `products` (`file`,`category`,`location`,`price`) values(?,?,?)";
         $statement = $db->prepare($insQuery);
         // bind our variables to the question marks
         $statement->bind_param("sss",$imageForDB,$categoryForDb,$locationForDb,$priceForDb);
         // make it so:
         $statement->execute();
+        
         
         // give the user some feedback
         echo '<div class="messages"><h4>Success: ' . $statement->affected_rows . ' product added!</h4>';

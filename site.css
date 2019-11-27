@@ -188,6 +188,14 @@ body {
    background-color: rgb(253, 235, 207);
  }
 
+#messages {
+   background-color: #ffd;
+   color: #333;
+   margin: 0 0 1em 0;
+   padding: 1em;
+   border: 1px solid #ccc;
+ }
+
 /* buy.html */ 
 
 .filter-bar {
