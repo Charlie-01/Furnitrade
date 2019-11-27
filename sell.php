@@ -208,7 +208,7 @@ the forms
        <label class="field" for = "location">Location:</label>
         <div class="value">
           <select name="location" id="location">
-              <!-- this is by states, i just have to go back and change these but im lazy -->
+              <!-- this is by states -->
               <option value="--">--</option>
               <option value="AL">AL</option>
               <option value="AK">AK</option>
