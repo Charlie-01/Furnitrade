@@ -8,6 +8,7 @@ Everything should be well commented*/
 html, body {
    padding: 0;
    margin: 0;
+   height: 100%;
 }
 
 a{
@@ -27,8 +28,14 @@ header{
 body {
    font-family: 'Be Vietnam';
    background-color: white;
-   margin-bottom: 0px;
+   display: flex;
+   flex-direction:column;
  }
+
+ .content {
+   flex: 1 0 auto;
+ }
+
 
  h1 {
 
@@ -101,7 +108,7 @@ body {
  .graphic_links {
    margin:auto;
    width: 1250px;
-   height:500px;
+   height:380px;
  }
 
  .graphics {
@@ -184,28 +191,14 @@ img {vertical-align: middle;}
   to {opacity: 1}
 }
 
-
-.slider {
-   width: 1250px;
-   height: 500px;
-   display: flex;
-   overflow-x: auto;
-   scroll-snap-type: x mandatory;  
-   padding-left: 7px;
- }
-
- .slide {
-   width: 1250px;
-   flex-shrink: 0;
-   height: 100%;
-   scroll-snap-align: start
- }
-
 .footer{
-   position: fixed;
+   /*
+   position: absolute;
    padding-top: 15px;
    bottom: 0;
    padding-bottom: 20px;
+   */
+   flex-shrink: 0;
    width: 100%;
    background-color: #e98366;
    color: white;
