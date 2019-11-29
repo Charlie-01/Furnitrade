@@ -150,7 +150,7 @@ outputting from the database
 -->
       
   <h3>Products</h3>
-  <table id="actorTable">
+  <table id="actoRTable">
     
   <?php
     // We'll need a database connection both for retrieving records and for 

@@ -83,6 +83,7 @@ the php
   // Have we posted?
   $havePost = isset($_POST["save"]);
   var_dump($havePost);
+
   
   // Let's do some basic validation
   $errors = '';
@@ -91,7 +92,7 @@ the php
     // Get the output and clean it for output on-screen.
     // First, let's get the output one param at a time.
     // Could also output escape with htmlentities()
-    $image = htmlspecialchars(trim($_POST["file[]"]));
+    $file = htmlspecialchars(trim($_FILES["file"]["name"][0]));
     $category = htmlspecialchars(trim($_POST["category"]));  
     $location = htmlspecialchars(trim($_POST["location"]));
     $price = htmlspecialchars(trim($_POST["price"]));
@@ -135,14 +136,16 @@ the php
         // Let's trim the input for inserting into mysql
         // Note that aside from trimming, we'll do no further escaping because we
         // use prepared statements to put these values in the database.
-        $imageForDb = trim($_POST["file[]"]);  
-        $categoryForDb = trim($_POST["category"]);  
+        //  WHY IS IT SAYING THAT THESE VARIABLES ARE NOT DEFINED ???
+        $imageForDb = trim($_FILES["file"]["name"][0]);
+        $categoryForDb = trim($_POST["category"]); 
         $locationForDb = trim($_POST["location"]);
         $priceForDb = trim($_POST["price"]);
         
         // Setup a prepared statement
-        $insQuery = "insert into `products` (`file`,`category`,`location`,`price`) values(?,?,?)";
+        $insQuery = "insert into products (`file`,`category`,`location`,`price`) values(?,?,?,?,?)";
         $statement = $db->prepare($insQuery);
+        print_r($imageForDB);
         // bind our variables to the question marks
         $statement->bind_param("sss",$imageForDB,$categoryForDb,$locationForDb,$priceForDb);
         // make it so:
