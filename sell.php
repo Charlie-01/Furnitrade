@@ -96,6 +96,13 @@ the php
     $category = htmlspecialchars(trim($_POST["category"]));  
     $location = htmlspecialchars(trim($_POST["location"]));
     $price = htmlspecialchars(trim($_POST["price"]));
+
+    // echo("<pre>");
+    // print_r($file);
+    // print_r($_FILES["file"]["name"][0]);
+    // echo("</pre>");
+    
+
     
     
     $focusId = ''; // trap the first field that needs updating, better would be to save errors in an array
@@ -131,23 +138,32 @@ the php
       echo '    $("' . $focusId . '").focus();';
       echo '  });';
       echo '</script>';
-    } else { 
+    }
+    else { 
       if ($dbOk) {
         // Let's trim the input for inserting into mysql
         // Note that aside from trimming, we'll do no further escaping because we
         // use prepared statements to put these values in the database.
         //  WHY IS IT SAYING THAT THESE VARIABLES ARE NOT DEFINED ???
-        $imageForDb = trim($_FILES["file"]["name"][0]);
-        $categoryForDb = trim($_POST["category"]); 
-        $locationForDb = trim($_POST["location"]);
-        $priceForDb = trim($_POST["price"]);
+
+        // echo("<pre>");
+        // print_r($_FILES);
+        // print_r($_FILES["file"]["name"][0]);
+        // echo("</pre>");
+
+        // $imageForDb = trim($_FILES["file"]["name"][0]);
+        // $categoryForDb = trim($_POST["category"]); 
+        // $locationForDb = trim($_POST["location"]);
+        // $priceForDb = trim($_POST["price"]);
+
+        // print_r($imageForDB);
         
         // Setup a prepared statement
         $insQuery = "insert into products (`file`,`category`,`location`,`price`) values(?,?,?,?,?)";
         $statement = $db->prepare($insQuery);
-        print_r($imageForDB);
+        // print_r($imageForDB);
         // bind our variables to the question marks
-        $statement->bind_param("sss",$imageForDB,$categoryForDb,$locationForDb,$priceForDb);
+        $statement->bind_param("sss",$_FILES["file"]["name"][0],$_POST["category"],$_POST["location"],$_POST["price"]);
         // make it so:
         $statement->execute();
         
