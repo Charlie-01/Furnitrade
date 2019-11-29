@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <title>Furnitrade</title>
+  <title>Furniture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="site.scss" />
@@ -48,7 +49,71 @@
     </div>
   </header>
 
+<div class="graphic_links">
+  <div class="graphics">
+    <div class="img_wrap">
+        <img src="buy2.png" alt="buy" style="width:100%"/>
+        <p class="img_description"> buy </p>
+    </div>
+  </div>
+<div class="graphics">
+    <div class="img_wrap">
+      <img src="trade2.png" alt="trade" style="width:100%"/>
+      <p class="img_description"> trade </p>
+    </div>
+</div>
+<div class="graphics">
+    <div class="img_wrap">
+        <img src="sell2.png" alt="sell" style="width:100%"/>
+        <p class="img_description"> sell </p>
+    </div>
+</div>
+</div>
 
+<div class="slideshow-container">
+
+  <div class="mySlides fade">
+    <img src="testimonial1.png" style="width:100%">
+  </div>
+  
+  <div class="mySlides fade">
+    <img src="testimonial2.png" style="width:100%">
+  </div>
+  
+  <div class="mySlides fade">
+    <img src="testimonial3.png" style="width:100%">
+  </div>
+  
+  </div>
+  <br>
+  
+  <div style="text-align:center">
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+  </div>
+  
+  <script>
+  var slideIndex = 0;
+  showSlides();
+  
+  function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 10000); // Change image every 10 seconds
+  }
+  </script>
 
 
   <!-- ...
@@ -56,7 +121,7 @@
       main body
     
     ... -->
-  <!-- empty for now, dunno if i need to put stuff here -->
+  <!-- empty for now, dunno if i need to put stuff here 
 
   <div class="slider">
     <div class="slide" id="slide-1">
@@ -69,7 +134,7 @@
           <img src="trade1.png" class="slider-image" width="700px" height="500px" alt="trade"/>
     </div>
   </div>
-
+-->
   <!-- ...
       
       footer
