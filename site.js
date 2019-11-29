@@ -9,6 +9,12 @@
       window.location="index.html";
    }
 
+   function user_icon(){
+      //when this function is called make the login button class change the div to contain an image only
+
+      
+   }
+
    function passinfo(){
       //alerts user of password shit
 
