@@ -345,3 +345,7 @@ img {vertical-align: middle;}
 .product-div p{
    padding-bottom: 15px;
 }
+
+#productTable{
+   margin-top: 10px;
+}

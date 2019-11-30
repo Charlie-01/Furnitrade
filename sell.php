@@ -82,7 +82,6 @@ the php
   // Now let's process our form:
   // Have we posted?
   $havePost = isset($_POST["save"]);
-  var_dump($havePost);
 
   
   // Let's do some basic validation
@@ -146,24 +145,13 @@ the php
         // use prepared statements to put these values in the database.
         //  WHY IS IT SAYING THAT THESE VARIABLES ARE NOT DEFINED ???
 
-        // echo("<pre>");
-        // print_r($_FILES);
-        // print_r($_FILES["file"]["name"][0]);
-        // echo("</pre>");
-
-        // $imageForDb = trim($_FILES["file"]["name"][0]);
-        // $categoryForDb = trim($_POST["category"]); 
-        // $locationForDb = trim($_POST["location"]);
-        // $priceForDb = trim($_POST["price"]);
-
-        // print_r($imageForDB);
         
         // Setup a prepared statement
-        $insQuery = "insert into products (`file`,`category`,`location`,`price`) values(?,?,?,?,?)";
+        $insQuery = "insert into products (`file`,`category`,`location`,`price`) values(?,?,?,?)";
         $statement = $db->prepare($insQuery);
-        // print_r($imageForDB);
+
         // bind our variables to the question marks
-        $statement->bind_param("sss",$_FILES["file"]["name"][0],$_POST["category"],$_POST["location"],$_POST["price"]);
+        $statement->bind_param("ssss",$_FILES["file"]["name"][0],$_POST["category"],$_POST["location"],$_POST["price"]);
         // make it so:
         $statement->execute();
         
