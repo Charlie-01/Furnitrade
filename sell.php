@@ -210,12 +210,12 @@ the forms
         <div class="value">
           <select name="category" id="category">
               <option value="--">--</option>
-              <option value="seating">Seating</option>
-              <option value="desks">Desks</option>
-              <option value="lighting">Lighting</option>
-              <option value="tables">Tables</option>
-              <option value="kitchenware">Kitchenware</option>
-              <option value="misc">Miscellaneous</option>
+              <option value="Seating">Seating</option>
+              <option value="Desks">Desks</option>
+              <option value="Lighting">Lighting</option>
+              <option value="Tables">Tables</option>
+              <option value="Kitchenware">Kitchenware</option>
+              <option value="Miscellaneous">Miscellaneous</option>
             </select>
         </div>
 
