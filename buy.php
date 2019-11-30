@@ -67,15 +67,15 @@
           <a href="trade.html">Trade</a>
         </div>
 
-        <div class="filter-bar">
+        <!-- <div class="filter-bar"> -->
 
           <!-- make this have dropdowns that are all buttons with functions
              to be called on click that change the JSON file -->
 
-            <a href="buy.html"><button class = "invisible-button">Location</button></a>
+            <!-- <a href="buy.html"><button class = "invisible-button">Location</button></a>
             <a href="buy.html"><button class = "invisible-button">Category</button></a>
-            <a href="buy.html"><button class = "invisible-button">Price</button></a>
-        </div>
+            <a href="buy.html"><button class = "invisible-button">Price</button></a> -->
+        <!-- </div> -->
   
       </div>
     </header>
@@ -103,20 +103,48 @@
       }
 
       if ($dbOk) {
-    
+        
         $query = 'select * from products order by id';
         $result = $db->query($query);
         $numRecords = $result->num_rows;
         //echo ($numRecords);
-      
+        
+        echo "<div class = 'big-products-block' id = 'all-products'>
+        <ol>";
+
         for ($i=$numRecords; $i > 0; $i--) {
           $record = $result->fetch_assoc();
           //here is where you will use php to format each one the way the divs above are set
-          echo htmlspecialchars($record['file']) . ', ';
-          echo htmlspecialchars($record['category']) . ', ';
-          echo htmlspecialchars($record['location']) . ', ';
-          echo htmlspecialchars($record['price']);
-          echo '</td><td>';
+          
+          if ($i%3 == 0){
+            echo '<li class = "product-row">';
+          }
+
+          echo '<div class = "product-div">';
+            echo '<img src = "';
+            echo htmlspecialchars($record['file']);
+            echo '" alt="img" width="220px" height="220px" />';
+
+            echo '<p>';
+            echo htmlspecialchars($record['category']);
+            echo '</p>';
+
+            echo '<p>';
+            echo htmlspecialchars($record['location']);
+            echo '</p>';
+
+            echo '<p>';
+            echo htmlspecialchars($record['price']);
+            echo '</p>';
+            
+            echo '<button onclick = bought() >Buy</button>';
+          echo '</div>';
+          
+          // echo htmlspecialchars($record['file']) . ', ';
+          // echo htmlspecialchars($record['category']) . ', ';
+          // echo htmlspecialchars($record['location']) . ', ';
+          // echo htmlspecialchars($record['price']);
+          // echo '</td><td>';
           
           // Uncomment the following three lines to see the underlying 
           // associative array for each record.
@@ -152,42 +180,6 @@
             price
           
         -->
-
-    <div class = "big-products-block" id = "all-products">
-      <ol>
-        <!-- 10 of these would be made with a loop thru the JSON get but im making
-          one for the sake of demoing how the ajax needs to be written (see Lab 9)-->
-
-        <li class = "product-row"> <!-- row 1... would be x10 -->
-          <div class = "product-div">
-            <img src = ""/>
-            <p>Category</p>
-            <p>Location</p>
-            <p>Price</p>
-            <button onclick = bought() >Buy</button>
-          </div>
-
-          <div class = "product-div">
-              <img src = ""/>
-              <p>Category</p>
-              <p>Location</p>
-              <p>Price</p>
-              <button onclick = bought() >Buy</button>
-          </div>
-
-          <div class = "product-div">
-              <img src = ""/>
-              <p>Category</p>
-              <p>Location</p>
-              <p>Price</p>
-              <button onclick = bought() >Buy</button>
-          </div>
-        </li>
-
-
-      </ol>
-  </div>
-
 
 
 

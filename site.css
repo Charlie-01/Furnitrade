@@ -318,27 +318,27 @@ img {vertical-align: middle;}
 
 .big-products-block{
    width: 1250px;
-   height: 1150px;
+   height: 500px;
    padding-left: 7px;
-   padding-top: 50px;
-   margin-top: 10px;
+   padding-top: 10px;
+   margin-top: 30px;
    margin-bottom: 1px;
 }
 
 .product-row{
    width: 1250px;
    display: flex;
-   padding-left: 120px;
+   padding-left: 10px;
    padding-right: 0px;
 }
 
 .product-div{
-   border: 1px solid lightgray; /* why isnt this showing up?? */
+   border: 2px solid #e98366; /* why isnt this showing up?? */
    border-radius: 5px;
    width: 250px;
    margin-right: 200px;
    float: left;
-   display: inline-block;
+   /* display: inline-block; */
    padding: 10px 10px 10px 10px;
 }
 
