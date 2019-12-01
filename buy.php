@@ -62,9 +62,9 @@
   
         <div class="menu">
           <a href="index.html">Home</a>
-          <a href="buy.html">Buy</a>
+          <a href="buy.php">Buy</a>
           <a href="sell.php">Sell</a>
-          <a href="trade.html">Trade</a>
+          <a href="aboutus.html">About Us</a>
         </div>
 
         <!-- <div class="filter-bar"> -->
