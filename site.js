@@ -6,7 +6,7 @@
       //the button of the class account will change what it says if the user has
       //created an account????
 
-      window.location="index.html";
+      window.location="create_account.html";
    }
 
    function user_icon(){
