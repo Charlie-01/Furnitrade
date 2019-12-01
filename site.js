@@ -80,7 +80,7 @@
 
 function bought(){
 
-   alert("You have chosen to claim this product. \n To complete the transaction please contact the seller. \n\n Contact provided below: \n");
+   alert("You have chosen to claim this product. \n To complete the transaction please contact the seller. \n\n Contact provided below: \n charlottestantonrpi@gmail.com \n 917-453-2019");
 
 }
 

@@ -339,7 +339,11 @@ img {vertical-align: middle;}
    margin-right: 200px;
    float: left;
    /* display: inline-block; */
-   padding: 10px 10px 10px 10px;
+   padding: 10px 10px 10px 10px; 
+}
+
+.product-div:hover{
+   cursor: pointer;
 }
 
 .product-div p{
@@ -349,3 +353,4 @@ img {vertical-align: middle;}
 #productTable{
    margin-top: 10px;
 }
+
