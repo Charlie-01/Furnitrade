@@ -1,62 +1,52 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
-
   <title>Furnitrade</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="site.scss" />
+  <link href="https://fonts.googleapis.com/css?family=Be+Vietnam:400,800&display=swap" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Be Vietnam' rel='stylesheet' />
   <link href='https://fonts.googleapis.com/css?family=Playball' rel='stylesheet' />
   <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400"/>
   <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="site.js"></script>
 </head>
-
 <body>
   <!-- ...
-      
-      main header  
-    
+      main header
     ... -->
-
-
-
   <header class = "header">
     <div class="mainheader">
-
       <div class="header-logo">
         <a href="index.html">
           <img src="Screen Shot 2019-10-26 at 5.09.24 PM.png" width="100" height="85" class="ladybug-logo"/>
           <img src="Screen Shot 2019-10-26 at 4.45.59 PM.png" width="300" height="100" class="furnitrade-logo"/>
         </a>
       </div>
-
       <div class="header-account">
-          <button class="login" onclick="loggedin()">
-            <a href= "create_account.html">Log In</a>
+          <button class="login">
+            <a href='create_account.html' class='log-in-button'>Log In</a>
           </button>
       </div>
-
       <div class="menu">
         <a href="index.html">Home</a>
         <a href="buy.php">Buy</a>
         <a href="sell.php">Sell</a>
         <a href="aboutus.html">About Us</a>
       </div>
-
     </div>
   </header>
-
-<div class="content">
+<div class="content" height = 400px;>
   <div class="graphic_links">
     <div class="graphics">
       <a href="buy.php">
         <div class="img_wrap">
           <img src="buy2.png" alt="buy" style="width:100%"/>
-          <p class="img_description"> buy </p>
+          <div class="img_description_layer">
+          <p class="img_description"> Buy </p>
+          </div>
         </div>
       </a>
     </div>
@@ -64,7 +54,9 @@
       <a href="sell.php">
         <div class="img_wrap">
           <img src="trade2.png" alt="trade" style="width:100%"/>
-          <p class="img_description"> trade </p>
+          <div class="img_description_layer">
+          <p class="img_description"> Trade </p>
+          </div>
         </div>
       </a>
     </div>
@@ -72,70 +64,57 @@
       <a href="sell.php">
         <div class="img_wrap">
           <img src="sell2.png" alt="sell" style="width:100%"/>
-          <p class="img_description"> sell </p>
+          <div class="img_description_layer">
+          <p class="img_description"> Sell </p>
+          </div>
         </div>
       </a>
     </div>
   </div>
-
 <div class="slideshow-container">
-
   <div class="mySlides fade">
     <img src="testimonial1.png" style="width:100%">
   </div>
-  
   <div class="mySlides fade">
     <img src="testimonial2.png" style="width:100%">
   </div>
-  
   <div class="mySlides fade">
     <img src="testimonial3.png" style="width:100%">
   </div>
-  
   </div>
   <br>
-  
   <div style="text-align:center">
-    <span class="dot"></span> 
-    <span class="dot"></span> 
-    <span class="dot"></span> 
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
   </div>
-  
   <script>
   var slideIndex = 0;
   showSlides();
-  
   function showSlides() {
     var i;
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("dot");
     for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
+      slides[i].style.display = "none";
     }
     slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
+    if (slideIndex > slides.length) {slideIndex = 1}
     for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
     }
-    slides[slideIndex-1].style.display = "block";  
+    slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
     setTimeout(showSlides, 10000); // Change image every 10 seconds
   }
   </script>
   </div>
-
-
   <!-- ...
-      
       main body
-    
     ... -->
-  <!-- empty for now, dunno if i need to put stuff here 
-
+  <!-- empty for now, dunno if i need to put stuff here
   <!-- ...
-      
       footer
-    
     ... -->
   <footer>
     <div class="footer">
@@ -152,5 +131,4 @@
       </p>
     </div>
   </footer>
-
 </body>
