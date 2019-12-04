@@ -2,6 +2,40 @@ header{
    position: static;
    height: 166px;
 }
+.header-account {
+  position:absolute;
+  top:0;
+  right:0;
+}
+.login{
+  border-radius: 6px;
+  background-color: white;
+  color: #E98366;
+  border: 2px solid #E98366;
+  margin-top: 20px;
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.login:hover{
+  background-color: #E98366;
+  color: white;
+}
+.log-in-button {
+  border-radius: 6px;
+  background-color: white;
+  color: #E98366;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.log-in-button:hover{
+  background-color: #E98366;
+  color: white;
+}
+.login:active{
+  border-color: white;
+}
 .menu {
     overflow: hidden;
     background-color: #E98366;
