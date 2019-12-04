@@ -31,8 +31,8 @@
       </div>
 
       <div class="header-account">
-          <button class="login" onclick="loggedin()">
-            Log In
+          <button class="login">
+            <a href='create_account.html' class='log-in-button'>Log In</a>
           </button>
       </div>
 

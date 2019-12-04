@@ -9,11 +9,15 @@
       window.location="create_account.html";
    }
 
-   function user_icon(){
-      //when this function is called make the login button class change the div to contain an image only
-
+   
+   
+   
+   
+   // function user_icon(){
+   //    //when this function is called make the login button class change the div to contain an image only
+   //    document.getElementById("header-account").innerHTML = "<img src='user_icon.png' alt='user'/>";
       
-   }
+   // }
 
    function passinfo(){
       //alerts user of password shit
@@ -84,5 +88,10 @@ function bought(){
 
 }
 
-
+$(document).ready(function () {
+   $(".logs").click(function() {
+      $(".header-account").html("<img src='user_icon.png' alt='user'/>");
+      $("#test13").html("<img src='user_icon.png' alt='user' width='40px' height='40px'/>");
+   });
+});
 
