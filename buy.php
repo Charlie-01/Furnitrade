@@ -11,9 +11,9 @@
   </head>
 
   <!--
-    ok, how is this gonna work?
+    ok, how is this gonna work????
 
-
+  maybe
     pull from sell JSON file
     somehow loop (jquery?) so that the first div always takes
     the most recent entry to the JSON file
@@ -32,6 +32,9 @@
 -> each of those divs should contain image, then underneath category, location
     price
 
+
+
+    nvm this didnt work lololol fun times
   -->
 
 

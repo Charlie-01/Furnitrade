@@ -1,5 +1,12 @@
 /* Furnitrade Site CSS File
 Everything should be well commented*/
+
+/* all css should be here unless there is a 
+specific need for it to be on an html page
+eg. u wanna test stuff out or u found the concept
+ on the internet */
+
+
 * {
    box-sizing: border-box;
 }
@@ -31,9 +38,16 @@ body {
    height: 400px;
    padding-top: 20px;
  }
- h1 {
- }
-/* index.html */
+
+
+
+/* 
+
+
+index.html 
+
+
+*/
  .mainheader {
    position: fixed;
    padding-top: 20px;
@@ -43,8 +57,7 @@ body {
    color: white;
    text-align: left;
  }
- .header-logo {
-}
+
 .header-account {
    position:absolute;
    top:0;
@@ -109,7 +122,14 @@ body {
    height: 100%;
    padding: 40px;
  }
-/* relevant styles */
+
+
+
+/* 
+
+relevant styles
+
+*/
 .img_wrap {
   position: relative;
   height: 100%;
@@ -131,7 +151,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* transition effect. not necessary */
+  /* transition effect. not necessary. woot */
   transition: opacity .2s, visibility .2s;
 }
 .img_wrap:hover .img_description_layer {
@@ -149,7 +169,16 @@ body {
 body {font-family: Verdana, sans-serif;}
 .mySlides {display: none;}
 img {vertical-align: middle;}
-/* Slideshow container */
+
+
+
+/* 
+
+
+Slideshow container 
+
+*/
+
 .slideshow-container {
   max-width: 1000px;
   position: relative;
@@ -157,7 +186,14 @@ img {vertical-align: middle;}
   padding-bottom: 130px;
   margin: auto;
 }
-/* The dots/bullets/indicators */
+
+
+/* 
+
+The dots/bullets/indicators
+
+*/
+
 .dot {
   height: 15px;
   width: 15px;
@@ -171,7 +207,12 @@ img {vertical-align: middle;}
 .active {
   background-color: #717171;
 }
-/* Fading animation */
+
+/* 
+
+Fading animation 
+
+*/
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
@@ -218,7 +259,6 @@ img {vertical-align: middle;}
    margin-top: 75px;
    margin-bottom: 75px;
    margin-right: 50px;
-   display: inline-block;
    padding: 5px 5px 5px 5px;
  }
 #file{
@@ -239,7 +279,6 @@ img {vertical-align: middle;}
    margin-top: 75px;
    margin-bottom: 75px;
    margin-right: 50px;
-   display: inline-block;
    float: left;
    padding: 5px 5px 5px 5px;
    padding-top: 130px;
