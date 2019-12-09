@@ -2,6 +2,9 @@
    Everything here should be in functions that are well
    commented so this file can be used throughout the site */
 
+
+// ok tbh i dont think most of these functions were necessary in hindsight
+
    function loggedin(){
       //the button of the class account will change what it says if the user has
       //created an account????
@@ -88,10 +91,14 @@ function bought(){
 
 }
 
-$(document).ready(function () {
-   $(".logs").click(function() {
-      $(".header-account").html("<img src='user_icon.png' alt='user'/>");
-      $("#test13").html("<img src='user_icon.png' alt='user' width='40px' height='40px'/>");
-   });
-});
+
+
+//the code to make the login button change to a user-icon is below but decided to remove
+
+// $(document).ready(function () {
+//    $(".logs").click(function() {
+//       $(".header-account").html("<img src='user_icon.png' alt='user'/>");
+//       $("#test13").html("<img src='user_icon.png' alt='user' width='40px' height='40px'/>");
+//    });
+// });
 

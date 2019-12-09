@@ -223,6 +223,7 @@ the forms
         <div class="value">
           <select name="location" id="location">
               <!-- this is by states -->
+              <!-- this was a pain to enter -->
               <option value="--">--</option>
               <option value="AL">AL</option>
               <option value="AK">AK</option>
